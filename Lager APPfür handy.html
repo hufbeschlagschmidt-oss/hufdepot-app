@@ -344,7 +344,22 @@ function moveToAuto(id, amount){
 
 });
 render();
+document.addEventListener("DOMContentLoaded", function () {
 
+  const btn = document.getElementById("addBtn");
+
+  if(btn){
+    btn.addEventListener("click", function () {
+      add();
+    });
+
+    // extra sicher für Handy (Touch Geräte)
+    btn.addEventListener("touchstart", function () {
+      add();
+    });
+  }
+
+});
 </script>
 
 </body>
