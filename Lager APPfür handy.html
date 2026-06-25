@@ -316,7 +316,22 @@ function render(){
 
   });
 }
+function moveToAuto(id, amount){
 
+  let i = items.find(x => x.id === id);
+  if(!i) return;
+
+  amount = parseInt(amount);
+  if(isNaN(amount) || amount <= 0) return;
+
+  if(i.werkstatt < amount) return;
+
+  i.werkstatt -= amount;
+  i.auto += amount;
+
+  save();
+  render();
+}
 render();
 
 </script>
