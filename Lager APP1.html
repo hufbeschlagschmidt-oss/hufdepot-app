@@ -1,0 +1,35 @@
+function add(){
+
+  let name = document.getElementById("name").value.trim();
+  let cat = document.getElementById("cat").value.trim();
+
+  let stock = parseInt(document.getElementById("stock").value);
+  let min = parseInt(document.getElementById("min").value);
+
+  if(!name) return;
+
+  if(isNaN(stock)) stock = 0;
+  if(isNaN(min)) min = 0;
+
+  let id = name.toLowerCase().replaceAll(" ","_") + "_" + Date.now();
+
+  items.push({
+    id,
+    name,
+    cat,
+    min,
+    werkstatt: stock,
+    auto: 0,
+    ordered:false,
+    expected:false
+  });
+
+  save();
+  render();
+
+  // 🔥 FELDER LEEREN (wichtig für Handy UX)
+  document.getElementById("name").value = "";
+  document.getElementById("cat").value = "";
+  document.getElementById("stock").value = "";
+  document.getElementById("min").value = "";
+}
