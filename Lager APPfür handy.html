@@ -332,6 +332,17 @@ function moveToAuto(id, amount){
   save();
   render();
 }
+  document.addEventListener("DOMContentLoaded", function () {
+
+  const btn = document.getElementById("addBtn");
+
+  if(btn){
+    btn.addEventListener("click", function () {
+      add();
+    });
+  }
+
+});
 render();
 
 </script>
