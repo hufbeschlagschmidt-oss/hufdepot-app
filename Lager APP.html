@@ -67,7 +67,7 @@ button {
 <input id="stock" type="number" placeholder="Start Werkstatt Bestand">
 <input id="min" type="number" placeholder="Mindestbestand">
 
-<button onclick="add()">Hinzufügen</button>
+<button type="button" onclick="add()">Hinzufügen</button>
 
 </div>
 
@@ -117,14 +117,17 @@ function save(){
 /* ➕ ADD */
 function add(){
 
-  let name = document.getElementById("name").value;
-  let cat = document.getElementById("cat").value;
+  let name = document.getElementById("name").value.trim();
+  let cat = document.getElementById("cat").value.trim();
   let stock = parseInt(document.getElementById("stock").value);
   let min = parseInt(document.getElementById("min").value);
 
   if(!name) return;
 
-  let id = name.toLowerCase().replaceAll(" ","_");
+  if(isNaN(stock)) stock = 0;
+  if(isNaN(min)) min = 0;
+
+  let id = name.toLowerCase().replace(/\s+/g, "_");
 
   items.push({
     id,
